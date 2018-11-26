@@ -22,4 +22,7 @@
   <ItemGroup>
     <None Include="lbfmodel.yaml" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="haarcascade_frontalface_alt2.xml" />
+  </ItemGroup>
 </Project>
