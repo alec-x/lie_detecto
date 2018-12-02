@@ -10,7 +10,7 @@ from tensorflow import set_random_seed
 
 def main():
     seed(10)
-    set_random_seed(232)
+    set_random_seed(629350186993)
     path = 'C:\\Repos\\mech423final\\LSTMFaceVector\\trainingData'
     i = 0
     y_data = numpy.array([])
@@ -30,14 +30,16 @@ def main():
     
     model = Sequential()
     model.add(LSTM(256, input_shape=(50,102), return_sequences=True)) #the 256 is semi-arbitrary?
+    model.add(LSTM(256, return_sequences=True))
     model.add(LSTM(256))
     model.add(Dense(1)) 
     model.add(Activation('sigmoid'))
     model.compile(optimizer='RMSprop', loss='mean_squared_error')
 
-    history = model.fit(x_data, y_data, epochs=1000, batch_size=len(x_data))
+    history = model.fit(x_data, y_data, epochs=4000, batch_size=len(x_data))
     
     loss = model.evaluate(x_data, y_data)
+    model.save('lie_detector_model');
     print(loss)
     # 5. make predictions
     predictions = model.predict(x_data)
