@@ -9,8 +9,8 @@ from numpy.random import seed
 from tensorflow import set_random_seed
 
 def main():
-    seed(1)
-    set_random_seed(2)
+    seed(10)
+    set_random_seed(232)
     path = 'C:\\Repos\\mech423final\\LSTMFaceVector\\trainingData'
     i = 0
     y_data = numpy.array([])
@@ -29,10 +29,11 @@ def main():
     # machinelearningmastery.com/5-step-life-cycle-long-short-term-memory-models-keras/
     
     model = Sequential()
-    model.add(LSTM(256, input_shape=(50,102))) #the 256 is semi-arbitrary?
+    model.add(LSTM(256, input_shape=(50,102), return_sequences=True)) #the 256 is semi-arbitrary?
+    model.add(LSTM(256))
     model.add(Dense(1)) 
     model.add(Activation('sigmoid'))
-    model.compile(optimizer='sgd', loss='mean_squared_error')
+    model.compile(optimizer='RMSprop', loss='mean_squared_error')
 
     history = model.fit(x_data, y_data, epochs=1000, batch_size=len(x_data))
     
