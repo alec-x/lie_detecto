@@ -21,10 +21,11 @@ def main():
         i += 1
 
     data = data.reshape(data.shape[2], data.shape[0], data.shape[1]); # sample,timestep, feature
-
+    # machinelearningmastery.com/5-step-life-cycle-long-short-term-memory-models-keras/
+    
     model = Sequential()
-    model.add(LSTM(103, input_shape=(50,51)))
-    model.add(Dense(1))
+    model.add(LSTM(256, input_shape=(50,51))) #the 256 is semi-arbitrary?
+    model.add(Dense(256)) 
     model.add(Activation('sigmoid'))
     model.compile(optimizer='sgd', loss='mean_squared_error')
 
