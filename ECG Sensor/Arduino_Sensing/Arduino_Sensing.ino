@@ -20,5 +20,5 @@ void loop() {
   
   buff[0] = 255;
   Serial.write(buff, sizeof(buff));
-  delay(10);
+  delay(5);
 }
