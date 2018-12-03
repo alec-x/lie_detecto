@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "heartRecognition", "heartRecognition\heartRecognition.pyproj", "{7508E602-A2AD-448C-B2AC-5277F6650A0D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7508E602-A2AD-448C-B2AC-5277F6650A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7508E602-A2AD-448C-B2AC-5277F6650A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFF2C8AE-1F56-49BA-BAD1-7FA6E639EB8D}
+	EndGlobalSection
+EndGlobal
