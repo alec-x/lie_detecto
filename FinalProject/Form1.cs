@@ -19,6 +19,8 @@ namespace FinalProject
     {
         ConcurrentQueue<int> dataBuffer = new ConcurrentQueue<int>();
         Stopwatch stopWatch;
+        string faceResult;
+        string heartResult;
 
         public Form1()
         {
@@ -29,9 +31,17 @@ namespace FinalProject
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            statusTrainText.Text = "Collecting Data";
+            statusTrainText.Update();
             Parallel.Invoke(
                 () => CallFaceRecognition("a"),
                 () => ExtractHeartData("a"));
+            statusTrainText.Text = "Calculating";
+            statusTrainText.Update();
+            lieDetection();
+            faceResultText.Text = faceResult;
+            heartResultText.Text = heartResult;
+            statusTrainText.Text = "Done";
         }
 
         private void serialPort_DataReceived(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
@@ -44,14 +54,5 @@ namespace FinalProject
             ExtractHeartData("l");
         }
 
-        private void statusTrainText_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

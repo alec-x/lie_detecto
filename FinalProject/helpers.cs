@@ -82,7 +82,7 @@ namespace FinalProject
         void writeHeartOutput(string arg)
         {
             string seconds = Convert.ToString(DateTimeOffset.Now.ToUnixTimeSeconds());
-            string fileName = "heartvector.txt";
+            string fileName = "\\heartvector.txt";
             string dirPath = "";
             int i = 0;
             string currLine = "";
@@ -145,6 +145,28 @@ namespace FinalProject
             }
 
 
+        }
+
+        void lieDetection()
+        {
+            string pythonPath = @"C:\Program Files (x86)\Microsoft Visual Studio\Shared\Python36_64\python.exe";
+            string lieDetectorPath = "DetectLies.py";
+            ProcessStartInfo detectorStartInfo = new ProcessStartInfo(pythonPath);
+            detectorStartInfo.UseShellExecute = false;
+            detectorStartInfo.RedirectStandardOutput = true;
+            detectorStartInfo.Arguments = lieDetectorPath;
+            detectorStartInfo.CreateNoWindow = true;
+
+            Process detectionProcess = new Process();
+            detectionProcess.StartInfo = detectorStartInfo;
+            detectionProcess.Start();
+
+            StreamReader resultReader = detectionProcess.StandardOutput;
+            faceResult = resultReader.ReadLine();
+            heartResult = resultReader.ReadLine();
+
+            detectionProcess.WaitForExit();
+            detectionProcess.Close();
         }
     }
 }
