@@ -59,6 +59,7 @@ namespace FinalProject
                 Console.WriteLine(exception.Message);
             }
         }
+
         void ReadSerial()
         {
             int newByte;
@@ -167,6 +168,36 @@ namespace FinalProject
 
             detectionProcess.WaitForExit();
             detectionProcess.Close();
+        }
+
+        void plotHeart()
+        {
+            UInt32 timeVar = 0;
+            UInt32 valVar = 0;
+            int lines = 0;
+            using (var heartFile = new StreamReader("heartvector.txt"))
+            {
+                // get rid of headers
+                heartFile.ReadLine();
+                while (!heartFile.EndOfStream && lines < 1000)
+                {
+                    string[] splits = heartFile.ReadLine().Split(',');
+                    
+                    timeVar = Convert.ToUInt32(splits[0]);
+                    valVar  = Convert.ToUInt32(splits[1]);
+
+                    if(valVar >= 1000)
+                    {
+                        valVar = 0;
+                    }
+                    heartTime.Add(timeVar);
+                    heartValue.Add(valVar);
+                    lines++;
+                }
+            }
+
+            chart1.Series[0].Points.DataBindXY(heartTime, heartValue);
+
         }
     }
 }

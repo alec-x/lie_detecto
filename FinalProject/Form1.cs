@@ -18,6 +18,9 @@ namespace FinalProject
     public partial class Form1 : Form
     {
         ConcurrentQueue<int> dataBuffer = new ConcurrentQueue<int>();
+        List<UInt32> heartTime = new List<UInt32>();
+        List<UInt32> heartValue = new List<UInt32>();
+
         Stopwatch stopWatch;
         string faceResult;
         string heartResult;
@@ -41,6 +44,7 @@ namespace FinalProject
             lieDetection();
             faceResultText.Text = faceResult;
             heartResultText.Text = heartResult;
+            plotHeart();
             statusTrainText.Text = "Done";
         }
 
@@ -53,6 +57,5 @@ namespace FinalProject
         {
             ExtractHeartData("l");
         }
-
     }
 }
