@@ -10,7 +10,7 @@ from numpy.random import seed
 from tensorflow import set_random_seed
 
 def main():
-    filename = "facevector.txt"
+    filename = "facevectors.txt"
     data = pandas.read_csv(filename, delimiter=',', 
                            low_memory=False, index_col='time').values
     x_data_face = data.reshape(1, data.shape[0], data.shape[1]);
