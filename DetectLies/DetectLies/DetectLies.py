@@ -13,10 +13,20 @@ def main():
     filename = "facevector.txt"
     data = pandas.read_csv(filename, delimiter=',', 
                            low_memory=False, index_col='time').values
-    x_data = data.reshape(1, data.shape[0], data.shape[1]);
-    model = load_model('lie_detector_model.h5')
+    x_data_face = data.reshape(1, data.shape[0], data.shape[1]);
+
+    filename = "heartvector.txt"
+    data = pandas.read_csv(filename, delimiter=',', 
+                           low_memory=False, index_col='time').values[0:1000]
+    x_data_heart = data.reshape(1, data.shape[0], data.shape[1]);
+
+    model_face = load_model('lie_detector_model.h5')
+    model_heart = load_model('lie_detector_model_heart.h5')
     # 5. make predictions
-    predictions = model.predict(x_data)
-    print(predictions[0, 0])
+    predictions_face = model_face.predict(x_data_face)
+    predictions_heart = model_heart.predict(x_data_heart)
+    print(predictions_face[0, 0])
+    print(predictions_heart[0, 0])
+
 if __name__ == "__main__":
     main()
