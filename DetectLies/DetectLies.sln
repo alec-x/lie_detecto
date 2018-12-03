@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "DetectLies", "DetectLies\DetectLies.pyproj", "{47FCD908-16B6-4F7C-A2CD-19267A31614C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{47FCD908-16B6-4F7C-A2CD-19267A31614C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47FCD908-16B6-4F7C-A2CD-19267A31614C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {69A3C34A-4310-4678-900A-6FA318F0C74E}
+	EndGlobalSection
+EndGlobal

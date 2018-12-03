@@ -39,7 +39,7 @@ def main():
     history = model.fit(x_data, y_data, epochs=4000, batch_size=len(x_data))
     
     loss = model.evaluate(x_data, y_data)
-    model.save('lie_detector_model');
+    model.save('lie_detector_model.h5');
     print(loss)
     # 5. make predictions
     predictions = model.predict(x_data)
