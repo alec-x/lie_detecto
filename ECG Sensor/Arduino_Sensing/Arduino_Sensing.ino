@@ -1,25 +1,24 @@
-void setup() {
-  // put your setup code hconst int heartPin = A1;
-void setup() {
-   Serial.begin(4800);
- }
- void loop() { 
- int heartValue = analogRead(heartPin);
-//Serial.print(100);  // To freeze the lower limit
-//Serial.print(" ");
-//Serial.print(600);  // To freeze the upper limit
-//Serial.print(" ");
-//Serial.print(340);  // To freeze the upper limit
-//Serial.print(" ");
- Serial.println(heartValue);
- delay(5);
- }
+const int heartPin = A1;
+unsigned int heartValue = 0;
+byte buff[3];
 
- ere, to run once:
-
+void setup() {
+  Serial.begin(4800);
 }
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
+ 
+void loop() { 
+  heartValue = analogRead(heartPin);
+  buff[1] = (heartValue >> 8) & 255;
+  buff[2] = heartValue & 255;
+  
+  if(buff[1] == 255){
+    buff[1] = 254; 
+  }
+  if(buff[2] == 255){
+    buff[2] = 254;
+  }
+  
+  buff[0] = 255;
+  Serial.write(buff, sizeof(buff));
+  delay(10);
 }
