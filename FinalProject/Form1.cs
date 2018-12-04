@@ -34,6 +34,7 @@ namespace FinalProject
 
         private void startButton_Click(object sender, EventArgs e)
         {
+            chart1.Series[0].Points.Clear();
             statusTrainText.Text = "Collecting Data";
             statusTrainText.Update();
             Parallel.Invoke(
